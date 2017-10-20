@@ -17,12 +17,41 @@ namespace MarioProducts.Models
         {
             this.Reviews = new HashSet<Review>();
         }
+
         [Key]
         public int ProductId { get; set; }
         public string Name { get; set; }
         public int Cost { get; set; }
         public string CountryOfOrigin { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
+
+		public override bool Equals(System.Object otherProduct)
+		{
+			if (!(otherProduct is Product))
+			{
+				return false;
+			}
+			else
+			{
+				Product newProduct = (Product)otherProduct;
+				return this.ProductId.Equals(newProduct.ProductId);
+			}
+		}
+
+		public override int GetHashCode()
+		{
+			return this.ProductId.GetHashCode();
+		}
+
+        public Product(string name, int cost, string countryOfOrigin, int productId)
+        {
+            this.Name = name;
+            this.Cost = cost;
+            this.CountryOfOrigin = countryOfOrigin;
+            this.ProductId = productId;
+        }
+
+
 
     }
 }

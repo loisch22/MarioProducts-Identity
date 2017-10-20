@@ -12,4 +12,10 @@
     <PackageReference Include="MSTest.TestFramework" Version="1.1.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MarioProducts\MarioProducts.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
 </Project>
