@@ -23,6 +23,7 @@ namespace MarioProducts.Models
         public string Name { get; set; }
         public int Cost { get; set; }
         public string CountryOfOrigin { get; set; }
+        public DateTime CreateDate {get; set;}
         public virtual ICollection<Review> Reviews { get; set; }
 
 		public override bool Equals(System.Object otherProduct)
@@ -48,6 +49,7 @@ namespace MarioProducts.Models
             this.Name = name;
             this.Cost = cost;
             this.CountryOfOrigin = countryOfOrigin;
+            this.CreateDate = DateTime.Now;
             this.ProductId = productId;
         }
 

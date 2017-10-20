@@ -37,7 +37,7 @@ namespace MarioProducts
 			{
 				routes.MapRoute(
 					name: "default",
-					template: "{controller=Veterinarian}/{action=Index}/{id?}");
+					template: "{controller=Home}/{action=Index}/{id?}");
 			});
 
 			loggerFactory.AddConsole();

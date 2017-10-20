@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Gummi Bear Kingdom</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans|Poppins|Roboto+Condensed" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded nav-layout">
+        <a class="navbar-brand">@Html.ActionLink("Mario's Specialty Foods", "Index", "Home")</a>
+        <div class="navbar-nav">
+          <a class="nav-item nav-link">@Html.ActionLink("Products", "Index", "Product")</a>
+          <a class="nav-item nav-link">@Html.ActionLink("Add New Product", "Create", "Product")</a>
+        </div>
+    </nav>
+ 
+    @RenderBody()
+</body>
+</html>

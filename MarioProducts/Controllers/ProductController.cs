@@ -39,5 +39,13 @@ namespace MarioProducts.Controllers
             productRepo.Save(product);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
+            return View(thisProduct);
+        }
+
+
     }
 }
