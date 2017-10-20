@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarioProducts", "MarioProducts\MarioProducts.csproj", "{1DB7B277-543D-4FAF-BFD6-73A2AD37EB8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarioProducts.Tests", "MarioProducts.Tests\MarioProducts.Tests.csproj", "{7E253549-0CB2-48A9-806C-5125FC4645C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{1DB7B277-543D-4FAF-BFD6-73A2AD37EB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB7B277-543D-4FAF-BFD6-73A2AD37EB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB7B277-543D-4FAF-BFD6-73A2AD37EB8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E253549-0CB2-48A9-806C-5125FC4645C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E253549-0CB2-48A9-806C-5125FC4645C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E253549-0CB2-48A9-806C-5125FC4645C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E253549-0CB2-48A9-806C-5125FC4645C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
