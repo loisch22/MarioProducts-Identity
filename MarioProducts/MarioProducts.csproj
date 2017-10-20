@@ -29,6 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20171020160417_Initial.Designer.cs" />
     <Compile Remove="Migrations\20171020160417_Initial.cs" />
     <Compile Remove="Migrations\MarioProductsDbContextModelSnapshot.cs" />

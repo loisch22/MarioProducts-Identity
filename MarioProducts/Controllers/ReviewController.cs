@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using MarioProducts.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MarioProducts.Models;
+
 
 namespace MarioProducts.Controllers
 {
@@ -29,9 +31,17 @@ namespace MarioProducts.Controllers
             return View(reviewRepo.Reviews.Include(reviews => reviews.Products).ToList());
         }
 
-        public IActionResult Create()
-        {
-            
-        }
+        //public IActionResult Create()
+        //{
+        //    ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name", "Cost", "CountryOfOrigin", "CreateDate");
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public IActionResult Create(Review review)
+        //{
+        //    reviewRepo.Save(review);
+        //    return RedirectToAction("Index");
+        //}
     }
 }

@@ -46,5 +46,6 @@ namespace MarioProducts.Models
             this.Rating = rating;
             this.ProductId = productId;
         }
+
     }
 }

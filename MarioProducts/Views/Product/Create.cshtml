@@ -1,0 +1,25 @@
+﻿@model MarioProducts.Models.Product
+
+@{
+    ViewData["Title"] = "Product - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add new product</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Cost)
+    @Html.EditorFor(model => model.Cost)
+
+    @Html.LabelFor(model => model.CountryOfOrigin)
+    @Html.EditorFor(model => model.CountryOfOrigin)
+
+    @Html.HiddenFor(model => model.CreateDate)
+
+    <input type="submit" value="Save"/>
+}

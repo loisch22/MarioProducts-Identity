@@ -28,6 +28,11 @@ _This site shows all of Mario's Specialty Food Products._
 |5| The controllers should accurately return Products and Reviews dedicated routes |
 
 
+## WishList
+Add reviews on product detail page
+Display all reviews for product on detail page
+
+
 #### There are two options to create the database:
 ##### 1. In MySQL
 `> CREATE DATABASE mario_products;`<br>

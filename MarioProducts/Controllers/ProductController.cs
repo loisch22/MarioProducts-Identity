@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MarioProducts.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MarioProducts.Controllers
 {
@@ -36,6 +37,7 @@ namespace MarioProducts.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
+            product.CreateDate = DateTime.Now;
             productRepo.Save(product);
             return RedirectToAction("Index");
         }
@@ -43,6 +45,7 @@ namespace MarioProducts.Controllers
         public IActionResult Details(int id)
         {
             var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
+            //ViewBag.reviews = new SelectList(productRepo.Reviews, "ReviewId", "Author", "ContentBody", "Rating", "ProductId");
             return View(thisProduct);
         }
 
