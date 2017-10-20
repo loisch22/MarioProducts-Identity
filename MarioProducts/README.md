@@ -12,11 +12,11 @@ _This site shows all of Mario's Specialty Food Products._
 || Behavior  | Input  | Output  |
 |---|---|---|---|
 |1| User may view all products in the products view. | Click `Products`  | View displays all products |
-|3| User may click on a product to view its details | Click specific `Product`| View displays product details|
-|4| Site admin can add, edit, delete products. | Click `Add` or `Edit` or `Delete`  | View displays proper form |
-|5| User may view products average rating | Click `Product` | View average rating in details |
-|6| User may add a review to a product | Click `Add review` | Review is added to review section of page |
-|2| User may 3 most recently added items and 3 items with the most reviews on the Home page  | Click `Home` in navigation bar  | View displays 6 products|
+|2| User may click on a product to view its details | Click specific `Product`| View displays product details|
+|3| Site admin can add, edit, delete products. | Click `Add` or `Edit` or `Delete`  | View displays proper form |
+|4| User may view products average rating | Click `Product` | View average rating in details |
+|5| User may add a review to a product | Click `Add review` | Review is added to review section of page |
+|6| User may 3 most recently added items and 3 items with the most reviews on the Home page  | Click `Home` in navigation bar  | View displays 6 products|
 
 ## Technical Specs
 
