@@ -20,7 +20,7 @@ _This site shows all of Mario's Specialty Food Products._
 
 ## Technical Specs
 
-|---|---|---|---|
+|---|
 |1| Products and Reviews should be properly saved to the database. |
 |2| Average rating of a Product should be accurately computed |
 |3| Ratings can only be an integar between 1 and 5
