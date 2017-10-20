@@ -1,0 +1,13 @@
+﻿@model MarioProducts.Models.Product
+
+@{
+    ViewData["Title"] = "Product - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Are you sure you want to delete @Html.DisplayFor(model => model.Name)?</h1>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" class="btn btn-danger" value="Confirm" onclick="location.href='@Url.Action("Delete", new{ id = Model.ProductId})'"/>
+}

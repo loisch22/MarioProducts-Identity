@@ -6,7 +6,7 @@
 }
 
 <h1>@Html.DisplayFor(model => model.Name) Details</h1>
-<p>@Html.ActionLink("Edit", "Edit", new {id = Model.ProductId})</p>
+<p>@Html.ActionLink("Edit", "Edit", new {id = Model.ProductId}) | @Html.ActionLink("Delete", "Delete", new {id = Model.ProductId})</p>
 
 <p>@Html.DisplayNameFor(model => model.Cost): $@Html.DisplayFor(model => model.Cost)</p>
 <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
