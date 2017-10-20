@@ -58,5 +58,19 @@ namespace MarioProducts.Controllers
             productRepo.Edit(product);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int id)
+        {
+			var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
+            return View(thisProduct);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirm(int id)
+        {
+			var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
+            productRepo.Remove(thisProduct);
+            return RedirectToAction("Index");
+        }
     }
 }
