@@ -37,5 +37,14 @@ namespace MarioProducts.Models
 		{
 			return this.ReviewId.GetHashCode();
 		}
+
+        public Review(int id, string author, string contentBody, int rating, int productId)
+        {
+            this.ReviewId = id;
+            this.Author = author;
+            this.ContentBody = contentBody;
+            this.Rating = rating;
+            this.ProductId = productId;
+        }
     }
 }

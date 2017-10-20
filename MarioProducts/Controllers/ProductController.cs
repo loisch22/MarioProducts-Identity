@@ -9,10 +9,35 @@ namespace MarioProducts.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        private IProductRepository productRepo;
+
+        public ProductController(IProductRepository thisRepo = null)
+        {
+            if(thisRepo == null)
+            {
+                this.productRepo = new EFProductRepository();
+            }
+            else
+            {
+                this.productRepo = thisRepo;    
+            }
+        }
+
+        public ViewResult Index()
+        {
+            return View(productRepo.Products.ToList());
+        }
+
+        public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            productRepo.Save(product);
+            return RedirectToAction("Index");
         }
     }
 }

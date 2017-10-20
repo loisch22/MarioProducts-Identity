@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170427-09" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.1.17" />
     <PackageReference Include="MSTest.TestFramework" Version="1.1.17" />
+    <PackageReference Include="Moq" Version="4.7.142" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,5 +18,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="ModelTests\" />
+    <Folder Include="ControllerTests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="UnitTest1.cs" />
   </ItemGroup>
 </Project>

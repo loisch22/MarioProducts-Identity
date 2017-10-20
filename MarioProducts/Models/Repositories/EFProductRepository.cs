@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MarioProducts.Models.Repositories
+namespace MarioProducts.Models
 {
 	public class EFProductRepository : IProductRepository
 	{
@@ -44,7 +44,7 @@ namespace MarioProducts.Models.Repositories
 
 		public void Remove(Product product)
 		{
-			db.Products.Remove(products);
+			db.Products.Remove(product);
 			db.SaveChanges();
 		}
 
