@@ -10,7 +10,7 @@ using System;
 namespace MarioProducts.Tests
 {
     [TestClass]
-    public class ProductControllerTest 
+    public class ProductControllerTest : IDisposable
     {
         Mock<IProductRepository> mock = new Mock<IProductRepository>();
 
@@ -81,24 +81,27 @@ namespace MarioProducts.Tests
 			CollectionAssert.Contains(collection, testProduct);
 		}
 
-   //     [TestMethod]
-   //     public void DB_Edit_Test()
-   //     {
-   //         ProductController controller = new ProductController(db);
-   //         Product testProduct = new Product();
-			//testProduct.Name = "Chili";
-			//testProduct.Cost = 3;
-			//testProduct.CountryOfOrigin = "Mexico";
-        //    testProduct.CreateDate = DateTime.Now;
+        [TestMethod]
+        public void DB_Edit_Test()
+        {
+            ProductController controller = new ProductController(db);
+            Product testProduct = new Product();
+			testProduct.Name = "Chili";
+			testProduct.Cost = 3;
+			testProduct.CountryOfOrigin = "Mexico";
+            testProduct.CreateDate = DateTime.Now;
 
-        //}
+            controller.Create(testProduct);
 
-        //public void Dispose()
-        //{
-        //    db.RemoveAll();
-        //}
+            testProduct.Name = "Jalapenos";
+            controller.Edit(testProduct);
 
+            Assert.AreEqual("Jalapenos", testProduct.Name);
+        }
 
-
+        public void Dispose()
+        {
+            db.RemoveAll();
+        }
 	}
 }

@@ -46,6 +46,17 @@ namespace MarioProducts.Controllers
             return View(thisProduct);
         }
 
+        public IActionResult Edit(int id)
+        {
+            var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
+            return View(thisProduct); 
+        }
 
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            productRepo.Edit(product);
+            return RedirectToAction("Index");
+        }
     }
 }
