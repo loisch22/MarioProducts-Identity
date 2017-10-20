@@ -28,5 +28,10 @@ namespace MarioProducts.Controllers
         {
             return View(reviewRepo.Reviews.Include(reviews => reviews.Products).ToList());
         }
+
+        public IActionResult Create()
+        {
+            
+        }
     }
 }
