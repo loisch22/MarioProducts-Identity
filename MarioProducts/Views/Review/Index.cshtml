@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MarioProducts.Models.Review>
+
+@{
+    ViewData["Title"] = "Reviews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Reviews</h1>
+
+@foreach (var review in Model)
+{
+    <li>@Html.DisplayFor(model => review.Products.Name) | 
+    <input type="submit" class="btn btn-sm btn-info" value="View Product Details" onclick="location.href='@Url.Action("Details", "Product", new{ id = review.ProductId})'"/>
+    </li>
+}

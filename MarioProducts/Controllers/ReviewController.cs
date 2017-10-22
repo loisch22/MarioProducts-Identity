@@ -27,7 +27,7 @@ namespace MarioProducts.Controllers
             }
         }
    
-        public ViewResult Index()
+        public ViewResult Index(int id)
         {
             return View(reviewRepo.Reviews.Include(reviews => reviews.Products).ToList());
         }

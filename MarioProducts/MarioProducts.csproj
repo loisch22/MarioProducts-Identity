@@ -38,7 +38,4 @@
     <Compile Remove="Migrations\20171020160417_Initial.cs" />
     <Compile Remove="Migrations\MarioProductsDbContextModelSnapshot.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Views\Review\Index.cshtml" />
-  </ItemGroup>
 </Project>

@@ -31,6 +31,7 @@ _This site shows all of Mario's Specialty Food Products._
 ## WishList
 Add reviews on product detail page
 Display all reviews for product on detail page
+After creating a review, redirect to specific product page with reviews
 Delete confirmation popup instead of seperate view
 
 
