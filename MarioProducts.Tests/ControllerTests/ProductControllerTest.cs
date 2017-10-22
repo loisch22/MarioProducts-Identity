@@ -10,7 +10,7 @@ using System;
 namespace MarioProducts.Tests
 {
     [TestClass]
-    public class ProductControllerTest : IDisposable
+    public class ProductControllerTest 
     {
         Mock<IProductRepository> mock = new Mock<IProductRepository>();
 
@@ -99,9 +99,9 @@ namespace MarioProducts.Tests
             Assert.AreEqual("Jalapenos", testProduct.Name);
         }
 
-        public void Dispose()
-        {
-            db.RemoveAll();
-        }
+        //public void Dispose()
+        //{
+        //    db.RemoveAll();
+        //}
 	}
 }

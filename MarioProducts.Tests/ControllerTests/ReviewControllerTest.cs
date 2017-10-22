@@ -10,7 +10,7 @@ using System;
 namespace MarioProducts.Tests
 {
 	[TestClass]
-	public class ReviewControllerTest 
+    public class ReviewControllerTest : IDisposable
 	{
 		Mock<IReviewRepository> mock = new Mock<IReviewRepository>();
 
@@ -25,6 +25,12 @@ namespace MarioProducts.Tests
 				new Review(){ReviewId = 3, Author = "Chad", ContentBody = "Perfectly crisp and salty", Rating = 5, ProductId = 3}
 			}.AsQueryable());
 		}
+
+        public void Dispose()
+        {
+            db.RemoveAll();
+       
+        }
 
 		[TestMethod]
 		public void Mock_GetViewResultIndex_Test()
@@ -48,60 +54,58 @@ namespace MarioProducts.Tests
 			Assert.IsInstanceOfType(result, typeof(List<Review>));
 		}
 
-		//[TestMethod]
-		//public void Mock_ConfirmEntry_Test()
-		//{
-		//	DbSetup();
-		//	ProductController controller = new ProductController(mock.Object);
-		//	Product testProduct = new Product();
-		//	testProduct.Name = "Dried Seaweed";
-		//	testProduct.Cost = 3;
-		//	testProduct.CountryOfOrigin = "South Korea";
-		//	testProduct.ProductId = 3;
+		[TestMethod]
+		public void Mock_ConfirmEntry_Test()
+		{
+			DbSetup();
+			ReviewController controller = new ReviewController(mock.Object);
+			Review testReview = new Review();
+            testReview.ReviewId = 1;
+			testReview.Author = "Lois";
+            testReview.ContentBody = "What a wonderful product!";
+            testReview.Rating = 4;
+            testReview.ProductId = 1;
 
-		//	ViewResult indexView = controller.Index() as ViewResult;
-		//	var collection = indexView.ViewData.Model as List<Product>;
+			ViewResult indexView = controller.Index() as ViewResult;
+			var collection = indexView.ViewData.Model as List<Review>;
 
-		//	CollectionAssert.Contains(collection, testProduct);
-		//}
+			CollectionAssert.Contains(collection, testReview);
+		}
 
-		//[TestMethod]
-		//public void DB_CreateNewProduct_Test()
-		//{
-		//	ProductController controller = new ProductController(db);
-		//	Product testProduct = new Product();
-		//	testProduct.Name = "Chili";
-		//	testProduct.Cost = 3;
-		//	testProduct.CountryOfOrigin = "Mexico";
-		//	testProduct.CreateDate = DateTime.Now;
+		[TestMethod]
+		public void DB_CreateNewReview_Test()
+		{
+			ReviewController controller = new ReviewController(db);
+			Review testReview = new Review();
+			testReview.ReviewId = 1;
+			testReview.Author = "Matt";
+			testReview.ContentBody = "Best chili I've ever had!";
+			testReview.Rating = 4;
+			testReview.ProductId = 1;
 
-		//	controller.Create(testProduct);
-		//	var collection = (controller.Index() as ViewResult).ViewData.Model as List<Product>;
+			controller.Create(testReview);
+			var collection = (controller.Index() as ViewResult).ViewData.Model as List<Review>;
 
-		//	CollectionAssert.Contains(collection, testProduct);
-		//}
+			CollectionAssert.Contains(collection, testReview);
+		}
 
-		//[TestMethod]
-		//public void DB_Edit_Test()
-		//{
-		//	ProductController controller = new ProductController(db);
-		//	Product testProduct = new Product();
-		//	testProduct.Name = "Chili";
-		//	testProduct.Cost = 3;
-		//	testProduct.CountryOfOrigin = "Mexico";
-		//	testProduct.CreateDate = DateTime.Now;
+		[TestMethod]
+		public void DB_Edit_Test()
+		{
+			ReviewController controller = new ReviewController(db);
+			Review testReview = new Review();
+			testReview.ReviewId = 1;
+			testReview.Author = "Matt";
+			testReview.ContentBody = "Best chili I've ever had!";
+			testReview.Rating = 4;
+			testReview.ProductId = 1;
 
-		//	controller.Create(testProduct);
+			controller.Create(testReview);
 
-		//	testProduct.Name = "Jalapenos";
-		//	controller.Edit(testProduct);
+			testReview.Author = "Matthew";
+			controller.Edit(testReview);
 
-		//	Assert.AreEqual("Jalapenos", testProduct.Name);
-		//}
-
-		//public void Dispose()
-		//{
-		//	db.RemoveAll();
-		//}
+			Assert.AreEqual("Matthew", testReview.Author);
+		}
 	}
 }

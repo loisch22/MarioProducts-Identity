@@ -31,17 +31,29 @@ namespace MarioProducts.Controllers
             return View(reviewRepo.Reviews.Include(reviews => reviews.Products).ToList());
         }
 
-        //public IActionResult Create()
-        //{
-        //    ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name", "Cost", "CountryOfOrigin", "CreateDate");
-        //    return View();
-        //}
+        public IActionResult Create()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //public IActionResult Create(Review review)
-        //{
-        //    reviewRepo.Save(review);
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public IActionResult Create(Review review)
+        {
+            reviewRepo.Save(review);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var thisReview = reviewRepo.Reviews.FirstOrDefault(x => x.ReviewId == id);
+            return View(thisReview);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Review review)
+        {
+            reviewRepo.Edit(review);
+            return RedirectToAction("Index");
+        }
     }
 }
