@@ -1,0 +1,44 @@
+﻿@model MarioProducts.Models.Review
+
+@{
+    ViewData["Title"] = "Review - Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit a Review</h1>
+
+<div class="container">
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Product</label>
+        @Html.DropDownList("ProductId")
+    </div>
+    <div class="form-group">
+        <label>@Html.LabelFor(model => model.Author)</label>
+        <small id="author-form" class="form-text">@Html.EditorFor(model => model.Author)</small>
+    </div>
+    <div class="form-group">
+        <label>Review Text</label>
+        <text id="content-form" class="form-text">@Html.TextAreaFor(model => model.ContentBody)</text>
+    </div>
+    <div class="form-group">
+        <label>@Html.LabelFor(model => model.Rating) (1-5)</label>
+        <text id="rating-form" class="form-text">@Html.TextAreaFor(model => model.Rating)</text>
+    </div>   
+  
+    <input type="submit" value="Save"/>
+   
+}
+</div>
+
+
+
+
+
+
+
+
+
+
+

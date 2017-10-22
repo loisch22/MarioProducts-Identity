@@ -34,6 +34,8 @@ Display all reviews for product on detail page
 After creating a review, redirect to specific product page with reviews
 Delete confirmation popup instead of seperate view
 
+## Known Bugs
+Edit review is not working
 
 
 #### There are two options to create the database:

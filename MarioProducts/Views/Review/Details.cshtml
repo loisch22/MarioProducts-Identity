@@ -1,0 +1,16 @@
+﻿@model MarioProducts.Models.Review
+
+@{
+    ViewData["Title"] = "Product - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>Review by @Html.DisplayFor(model => model.Author) for @Html.DisplayFor(model => model.Products.Name)</h1>
+
+    <p>@Html.DisplayFor(model => model.ContentBody)</p>
+	<p>Rating: @Html.DisplayFor(model => model.Rating)</p>
+
+    <input type="submit" class="btn btn-info" value="Return to Reviews" onclick="location.href='@Url.Action("Index")'"/>
+    <input type="submit" class="btn btn-success" value="View Product Details" onclick="location.href='@Url.Action("Details", "Product", new{ id = Model.ProductId})'"/> 
+</div>

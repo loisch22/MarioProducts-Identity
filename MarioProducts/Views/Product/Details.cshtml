@@ -12,4 +12,5 @@
 <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
 
 
-<input type="submit" class="btn btn-danger" value="Add Review" onclick="location.href='@Url.Action("Create", "Review", new{ id = Model.ProductId})'"/>
+<input type="submit" class="btn btn-info" value="Add Review" onclick="location.href='@Url.Action("Create", "Review", new{ id = Model.ProductId})'"/>
+<input type="submit" class="btn btn-success" value="View All Reviews" onclick="location.href='@Url.Action("Index", "Review")'"/>

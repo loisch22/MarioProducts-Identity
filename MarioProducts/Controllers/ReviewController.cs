@@ -47,6 +47,7 @@ namespace MarioProducts.Controllers
 
         public IActionResult Edit(int id)
         {
+			ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name");
             var thisReview = reviewRepo.Reviews.Include(x => x.Products)
                                        .FirstOrDefault(x => x.ReviewId == id);
             return View(thisReview);
@@ -58,5 +59,28 @@ namespace MarioProducts.Controllers
             reviewRepo.Edit(review);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisReview = reviewRepo.Reviews.Include(x => x.Products)
+									   .FirstOrDefault(x => x.ReviewId == id);
+            return View(thisReview);
+                                        
+        }
+
+		public IActionResult Delete(int id)
+		{
+            var thisReview = reviewRepo.Reviews.Include(x => x.Products)
+									   .FirstOrDefault(x => x.ReviewId == id);
+			return View(thisReview);
+		}
+
+		[HttpPost, ActionName("Delete")]
+		public IActionResult DeleteConfirmed(int id)
+		{
+			var thisReview = reviewRepo.Reviews.FirstOrDefault(review => review.ReviewId == id);
+			reviewRepo.Remove(thisReview);
+			return RedirectToAction("Index");
+		}
     }
 }
