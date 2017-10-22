@@ -7,25 +7,51 @@
 
 <h1>Add a Review</h1>
 
-@using (Html.BeginFor())
-{
-    @Html.LabelFor(model => model.Author)
-    @Html.EditorFor(model => model.Author)
-}
-
-
+<div class="container">
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+    @Html.LabelFor(model => model.Author)
+	@Html.EditorFor(model => model.Author)
 
-    @Html.LabelFor(model => model.Cost)
-    @Html.EditorFor(model => model.Cost)
+	@Html.LabelFor(model => model.ContentBody)
+	@Html.EditorFor(model => model.ContentBody)
 
-    @Html.LabelFor(model => model.CountryOfOrigin)
-    @Html.EditorFor(model => model.CountryOfOrigin)
+     <label>@Html.LabelFor(model => model.Rating)</label>
+    <select class="form-control" id="rating-form">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
 
-    @Html.HiddenFor(model => model.CreateDate)
-
+    @Html.DropDownList("ProductId")
+	
     <input type="submit" value="Save"/>
+   
 }
+</div>
+
+
+<!-- <div class="form-group">
+        <label>@Html.LabelFor(model => model.Author)</label>
+        <small id="author-form" class="form-text">@Html.EditorFor(model => model.Author)</small>
+    </div>
+    <div class="form-group">
+        <label>Review Text</label>
+        <large id="content-form" class="form-text">@Html.EditorFor(model => model.ContentBody)</large>
+    </div>
+    <div class="form-group">
+    <label>@Html.LabelFor(model => model.Rating)</label>
+    <select class="form-control" id="rating-form">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+-->
+
+
+
