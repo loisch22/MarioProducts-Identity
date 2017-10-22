@@ -34,6 +34,7 @@ Display all reviews for product on detail page
 Delete confirmation popup instead of seperate view
 
 
+
 #### There are two options to create the database:
 ##### 1. In MySQL
 `> CREATE DATABASE mario_products;`<br>

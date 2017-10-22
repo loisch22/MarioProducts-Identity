@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MarioProducts.Models;
+using System.Diagnostics.Contracts;
 
 
 namespace MarioProducts.Controllers
@@ -33,6 +34,7 @@ namespace MarioProducts.Controllers
 
         public IActionResult Create()
         {
+			ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name");
             return View();
         }
 
@@ -45,7 +47,8 @@ namespace MarioProducts.Controllers
 
         public IActionResult Edit(int id)
         {
-            var thisReview = reviewRepo.Reviews.FirstOrDefault(x => x.ReviewId == id);
+            var thisReview = reviewRepo.Reviews.Include(x => x.Products)
+                                       .FirstOrDefault(x => x.ReviewId == id);
             return View(thisReview);
         }
 

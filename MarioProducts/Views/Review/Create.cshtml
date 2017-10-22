@@ -1,0 +1,31 @@
+﻿@model MarioProducts.Models.Review
+
+@{
+    ViewData["Title"] = "Review - Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add a Review</h1>
+
+@using (Html.BeginFor())
+{
+    @Html.LabelFor(model => model.Author)
+    @Html.EditorFor(model => model.Author)
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Cost)
+    @Html.EditorFor(model => model.Cost)
+
+    @Html.LabelFor(model => model.CountryOfOrigin)
+    @Html.EditorFor(model => model.CountryOfOrigin)
+
+    @Html.HiddenFor(model => model.CreateDate)
+
+    <input type="submit" value="Save"/>
+}
