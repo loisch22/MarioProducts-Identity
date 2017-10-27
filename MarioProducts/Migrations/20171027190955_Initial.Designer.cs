@@ -8,9 +8,10 @@ using MarioProducts.Models;
 namespace MarioProducts.Migrations
 {
     [DbContext(typeof(MarioProductsDbContext))]
-    partial class MarioProductsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171027190955_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");

@@ -1,18 +1,23 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
 using MarioProducts.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MarioProducts
 {
 	public class Startup
 	{
 		public IConfigurationRoot Configuration { get; set; }
+
 		public Startup(IHostingEnvironment env)
 		{
 			var builder = new ConfigurationBuilder()
@@ -29,7 +34,10 @@ namespace MarioProducts
 					.AddDbContext<MarioProductsDbContext>(options =>
 											  options
 												   .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
-		}
+			services.AddIdentity<ApplicationUser, IdentityRole>()
+					.AddEntityFrameworkStores<MarioProductsDbContext>()
+					.AddDefaultTokenProviders();
+        }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

@@ -19,6 +19,7 @@ namespace MarioProducts.Models
         public int Rating { get; set; }
         public int ProductId { get; set; }
         public virtual Product Products { get; set; }
+        public virtual ApplicationUser Admin { get; set; }
 
 		public override bool Equals(System.Object otherReview)
 		{

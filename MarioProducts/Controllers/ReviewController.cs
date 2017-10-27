@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MarioProducts.Models;
 using System.Diagnostics.Contracts;
@@ -13,42 +14,39 @@ namespace MarioProducts.Controllers
 {
     public class ReviewController : Controller
     {
-        private IReviewRepository reviewRepo;
+        private readonly MarioProductsDbContext _db;
+		private readonly UserManager<ApplicationUser> _userManager;
+		private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public ReviewController(IReviewRepository thisRepo = null)
-        {
-            if (thisRepo == null)
-            {
-                this.reviewRepo = new EFReviewRepository(); 
-            }
-            else
-            {
-                this.reviewRepo = thisRepo;    
-            }
-        }
+        public ReviewController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, MarioProductsDbContext db)
+		{
+			_userManager = userManager;
+			_signInManager = signInManager;
+			_db = db;
+		}
    
         public ViewResult Index(int id)
         {
-            return View(reviewRepo.Reviews.Include(reviews => reviews.Products).ToList());
+            return View(_db.Reviews.Include(reviews => reviews.Products).ToList());
         }
 
         public IActionResult Create()
         {
-			ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name");
+			ViewBag.ProductId = new SelectList(_db.Products, "ProductId", "Name");
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(Review review)
         {
-            reviewRepo.Save(review);
+            _db.Reviews.Add(review);
             return RedirectToAction("Index");
         }
 
         public IActionResult Edit(int id)
         {
-			ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name");
-            var thisReview = reviewRepo.Reviews.Include(x => x.Products)
+			ViewBag.ProductId = new SelectList(_db.Products, "ProductId", "Name");
+            var thisReview = _db.Reviews.Include(x => x.Products)
                                        .FirstOrDefault(x => x.ReviewId == id);
             return View(thisReview);
         }
@@ -56,13 +54,13 @@ namespace MarioProducts.Controllers
         [HttpPost]
         public IActionResult Edit(Review review)
         {
-            reviewRepo.Edit(review);
+            _db.Entry(review).State = EntityState.Modified;
             return RedirectToAction("Index");
         }
 
         public IActionResult Details(int id)
         {
-            var thisReview = reviewRepo.Reviews.Include(x => x.Products)
+            var thisReview = _db.Reviews.Include(x => x.Products)
 									   .FirstOrDefault(x => x.ReviewId == id);
             return View(thisReview);
                                         
@@ -70,7 +68,7 @@ namespace MarioProducts.Controllers
 
 		public IActionResult Delete(int id)
 		{
-            var thisReview = reviewRepo.Reviews.Include(x => x.Products)
+            var thisReview = _db.Reviews.Include(x => x.Products)
 									   .FirstOrDefault(x => x.ReviewId == id);
 			return View(thisReview);
 		}
@@ -78,8 +76,8 @@ namespace MarioProducts.Controllers
 		[HttpPost, ActionName("Delete")]
 		public IActionResult DeleteConfirmed(int id)
 		{
-			var thisReview = reviewRepo.Reviews.FirstOrDefault(review => review.ReviewId == id);
-			reviewRepo.Remove(thisReview);
+			var thisReview = _db.Reviews.FirstOrDefault(review => review.ReviewId == id);
+			_db.Remove(thisReview);
 			return RedirectToAction("Index");
 		}
     }

@@ -25,6 +25,7 @@ namespace MarioProducts.Models
         public string CountryOfOrigin { get; set; }
         public DateTime CreateDate {get; set;}
         public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ApplicationUser Admin { get; set; }
 
 		public override bool Equals(System.Object otherProduct)
 		{
