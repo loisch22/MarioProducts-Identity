@@ -16,7 +16,13 @@ _This site shows all of Mario's Specialty Food Products._
 |3| Site admin can add, edit, delete products. | Click `Add` or `Edit` or `Delete`  | View displays proper form |
 |4| User may view products average rating | Click `Product` | View average rating in details |
 |5| User may add a review to a product | Click `Add review` | Review is added to review section of page |
-|6| User may 3 most recently added items and 3 items with the most reviews on the Home page  | Click `Home` in navigation bar  | View displays 6 products|
+|6| Using .NET Core Identity, Employees at Mario's Speciality Food Products can register for admin accounts. | Click `Create new admin` | Admin form |
+|7| Employees can log in and out of their accounts. | Click `login` or `logout` | Returns appropriate view |
+|8| Admin users are allowed to post new items. | Click `Add new product` | New product added |
+|9| Anonymous users should not be able to post new items. | `Add new product` not visible | Error page |
+|10| Admin users can delete comments by any user. | `Delete` | Deletes review |
+|11| From the product details page, make adding a new review into an AJAX action. | Add review | Review posts on same view |
+|12| User may 3 most recently added items and 3 items with the most reviews on the Home page  | Click `Home` in navigation bar  | View displays 6 products|
 
 ## Technical Specs
 |1| Products and Reviews should be properly saved to the database. |

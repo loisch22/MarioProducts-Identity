@@ -13,8 +13,22 @@
         <a class="navbar-brand">@Html.ActionLink("Mario's Specialty Foods", "Index", "Home")</a>
         <div class="navbar-nav">
           <a class="nav-item nav-link">@Html.ActionLink("Products", "Index", "Product")</a>
-          <a class="nav-item nav-link">@Html.ActionLink("Add New Product", "Create", "Product")</a>
-          <a class="nav-item nav-link">@Html.ActionLink("Create New Admin", "Register", "Account")</a>           
+
+		   @if (User.Identity.IsAuthenticated)
+    		{
+			   <a class="nav-item nav-link">@Html.ActionLink("Account", "Index", "Account")</a>
+    		   <a class="nav-item nav-link">@Html.ActionLink("Add New Product", "Create", "Product")</a>
+				@using (Html.BeginForm("Logoff", "Account"))
+				{
+                    <input type="submit" class="btn" value="Log out"/> 
+				}
+    		}
+		   else
+			{
+			   <a class="nav-item nav-link">@Html.ActionLink("Create Admin", "Register", "Account")</a>
+			   <a class="nav-item nav-link">@Html.ActionLink("Admin Log In", "Login", "Account")</a>           
+			}
+
 		</div>
     </nav>
  

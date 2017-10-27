@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MarioProducts.Models;
 using System.Diagnostics.Contracts;
+using System.Security.Claims;
 
 namespace MarioProducts.Controllers
 {
@@ -35,10 +36,14 @@ namespace MarioProducts.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product product)
+        public async Task<IActionResult> Create(Product product)
         {
+			var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+			var currentUser = await _userManager.FindByIdAsync(userId);
+			product.Admin = currentUser;
             product.CreateDate = DateTime.Now;
             _db.Products.Add(product);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 

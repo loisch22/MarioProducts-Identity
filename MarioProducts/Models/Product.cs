@@ -45,14 +45,14 @@ namespace MarioProducts.Models
 			return this.ProductId.GetHashCode();
 		}
 
-        public Product(string name, int cost, string countryOfOrigin, int productId)
-        {
-            this.Name = name;
-            this.Cost = cost;
-            this.CountryOfOrigin = countryOfOrigin;
-            this.CreateDate = DateTime.Now;
-            this.ProductId = productId;
-        }
+        //public Product(string name, int cost, string countryOfOrigin, int productId)
+        //{
+        //    this.Name = name;
+        //    this.Cost = cost;
+        //    this.CountryOfOrigin = countryOfOrigin;
+        //    this.CreateDate = DateTime.Now;
+        //    this.ProductId = productId;
+        //}
 
     }
 }
