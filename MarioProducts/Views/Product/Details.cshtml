@@ -4,17 +4,44 @@
     ViewData["Title"] = "Product - Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <script>
+		$(document).ready(function() {
+           $(".add-review").submit(function(event) {
+		        event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("Create", "Review", new{ id = Model.ProductId})',
+		            type: 'POST',
+		            dataType: 'json',
+		            success: function (result) {
+		                var 
+		            }
+		        })
+		    });
+		});
+    </script>
+</head>
 
-<h1>@Html.DisplayFor(model => model.Name) Details</h1>
+<body>
+    <h1>@Html.DisplayFor(model => model.Name) Details</h1>
 
-@if (User.Identity.IsAuthenticated)
-{
-<p>@Html.ActionLink("Edit", "Edit", new {id = Model.ProductId}) | @Html.ActionLink("Delete", "Delete", new {id = Model.ProductId})</p>
-}
+    @if (User.Identity.IsAuthenticated)
+    {
+    <p>@Html.ActionLink("Edit", "Edit", new {id = Model.ProductId}) | @Html.ActionLink("Delete", "Delete", new {id = Model.ProductId})</p>
+    }
 
-<p>@Html.DisplayNameFor(model => model.Cost): $@Html.DisplayFor(model => model.Cost)</p>
-<p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
+    <p>@Html.DisplayNameFor(model => model.Cost): $@Html.DisplayFor(model => model.Cost)</p>
+    <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
 
+	<h5>Write a review</h5>
+	<form class="add-review">
+        <label for="review">Write Review</label>
+		<input type="text" name="review"/>
+		<button type="submit">Add Review</button>
+	</form>
 
-<input type="submit" class="btn btn-info" value="Add Review" onclick="location.href='@Url.Action("Create", "Review", new{ id = Model.ProductId})'"/>
-<input type="submit" class="btn btn-success" value="View All Reviews" onclick="location.href='@Url.Action("Index", "Review")'"/>
+	<div id="post-reviews"></div>
+
+    <input type="submit" class="btn btn-info" value="Add Review" onclick="location.href='@Url.Action("Create", "Review", new{ id = Model.ProductId})'"/>
+    <input type="submit" class="btn btn-success" value="View All Reviews" onclick="location.href='@Url.Action("Index", "Review")'"/>
+</body>>
