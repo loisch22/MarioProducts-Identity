@@ -27,7 +27,8 @@ namespace MarioProducts.Controllers
    
         public IActionResult Index(int id)
         {
-            var allReviews = _db.Reviews.Include(reviews => reviews.Products).ToList();
+            var allReviews = _db.Reviews
+                                .Include(reviews => reviews.ProductId == id).ToList();
             return Json(allReviews);
         }
 

@@ -27,7 +27,7 @@
     </script>
 	<script>
 		$(document).ready(function () {
-            $(".all-reviews").click(function (event) {
+            $(".all-reviews").submit(function (event) {
                 event.preventDefault();
 			    $.ajax ({
                     url: '@Url.Action("Index", "Review", new { id = Model.ProductId})',
@@ -72,7 +72,10 @@
 
 	<div id="post-reviews"></div>
 
-    <h3 class="all-reviews">View All Reviews</h3>
+    <h3>View All Reviews</h3>
+        <form action='("Index", "Review", new{ id = Model.ProductId})' class="all-reviews">
+            <button type="submit">Click to see reviews</button>
+        </form>
 		
 	<div id="show-all-reviews"></div>
 
