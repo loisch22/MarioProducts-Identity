@@ -25,7 +25,7 @@
 		    });
 		});
     </script>
-	<script>
+<!--	<script>
 		$(document).ready(function () {
 			$(".get-reviews").click(function () {
                 $.ajax ({
@@ -39,12 +39,12 @@
                                 stringResult += '<li>' + result[i].author + ',' + result[i].contentBody + ',' + result[i].rating + '</li>';
                             }
                         stringResult += "</ul>";
-                        $("#show-all-reviews").append(stringResult);
+                        $("#show-all-reviews").html(stringResult);
                     }
     			});
 			});
 		});
-	</script>
+	</script>-->
 </head>
 
 <body>
@@ -73,8 +73,16 @@
 
 	<div id="show-recent"></div>
 
-    <h3>View All Reviews</h3>		
-	<div id="show-all-reviews"></div>
+    <h3 class="get-reviews">View All Reviews</h3>		
+	@foreach(var review in Model.Reviews)
+		{
+            <li>@review.Author
+            <br>
+			@review.ContentBody
+			<br>
+			@review.Rating
+		    </li>
+		}
 
 		
 
