@@ -25,9 +25,10 @@ namespace MarioProducts.Controllers
 			_db = db;
 		}
    
-        public ViewResult Index(int id)
+        public IActionResult Index(int id)
         {
-            return View(_db.Reviews.Include(reviews => reviews.Products).ToList());
+            var allReviews = _db.Reviews.Include(reviews => reviews.Products).ToList();
+            return Json(allReviews);
         }
 
         public IActionResult Create()
@@ -41,7 +42,8 @@ namespace MarioProducts.Controllers
         {
             var newReview = new Review(author, contentBody, rating, id);
             _db.Reviews.Add(newReview);
-            return RedirectToAction("Details", "Product", new{id = newReview.ProductId});
+            _db.SaveChanges();
+            return Json(newReview);
         }
 
         public IActionResult Edit(int id)

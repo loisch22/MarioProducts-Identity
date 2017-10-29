@@ -41,6 +41,7 @@ namespace MarioProducts.Models
 
         public Review(string author, string contentBody, int rating, int productId)
         {
+          
             this.Author = author;
             this.ContentBody = contentBody;
             this.Rating = rating;

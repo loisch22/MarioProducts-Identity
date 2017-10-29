@@ -18,14 +18,34 @@
 		            dataType: 'json',
 		            data: $(this).serialize(),
 		            success: function (result) {
-		                var newReview = '<p>result.author</p>' + '<br><p>result.contentBody<p>' 
-		                                + '<br><p>result.rating</p>';
+			            var newReview = '<p>' + '<strong><h5>Your Newly Added Review</h5></strong>' + '<strong>Author: </strong>' + result.author + '<br>' + '<strong>Review: </strong>' + result.contentBody + '<br>' + '<strong>Rating: </strong>' + result.rating + '</p>';
 		                $("#post-reviews").html(newReview);
 		            }
 		        })
 		    });
 		});
     </script>
+	<script>
+		$(document).ready(function () {
+            $(".all-reviews").click(function (event) {
+                event.preventDefault();
+			    $.ajax ({
+                    url: '@Url.Action("Index", "Review", new { id = Model.ProductId})',
+			        type: 'GET',
+			        dataType: 'json',
+			        data: $(this).serialize(),
+			        success: function (result) {
+			           var stringResult = '<ul>';
+			                for (var i = 0, i < result.length; i++) {
+                                stringResult += '<li>' + result[i].author + ',' + result[i].contentBody + ',' + result[i].rating + '</li>';
+			                }
+			            stringResult += "</ul>";
+			            $("#show-all-reviews").html(stringResult);
+			        }
+			    });
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -39,8 +59,8 @@
     <p>@Html.DisplayNameFor(model => model.Cost): $@Html.DisplayFor(model => model.Cost)</p>
     <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
 
-	<h5>Write a review</h5>
-	<form class="add-review">
+	<h4>Write a review for the product: @Html.DisplayFor(model => model.Name)</h4>
+	<form action='(Create", "Review", new{ id = Model.ProductId})' class="add-review">
         <label for="review">Author</label>
 		<input type="text" name="author"/>
 		<label for="review">Review</label>
@@ -52,7 +72,13 @@
 
 	<div id="post-reviews"></div>
 
+    <h3 class="all-reviews">View All Reviews</h3>
+		
+	<div id="show-all-reviews"></div>
 
-    <input type="submit" class="btn btn-success" value="View All Reviews" onclick="location.href='@Url.Action("Index", "Review")'"/>
+		
+
+
+<!--    <input type="submit" class="btn btn-success" value="View All Reviews" onclick="location.href='@Url.Action("Index", "Review")'"/>-->
 </body>
 </html>
