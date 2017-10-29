@@ -4,7 +4,10 @@
     ViewData["Title"] = "Product - Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
 		$(document).ready(function() {
            $(".add-review").submit(function(event) {
@@ -13,8 +16,11 @@
                     url: '@Url.Action("Create", "Review", new{ id = Model.ProductId})',
 		            type: 'POST',
 		            dataType: 'json',
+		            data: $(this).serialize(),
 		            success: function (result) {
-		                var 
+		                var newReview = '<p>result.author</p>' + '<br><p>result.contentBody<p>' 
+		                                + '<br><p>result.rating</p>';
+		                $("#post-reviews").html(newReview);
 		            }
 		        })
 		    });
@@ -35,13 +41,18 @@
 
 	<h5>Write a review</h5>
 	<form class="add-review">
-        <label for="review">Write Review</label>
-		<input type="text" name="review"/>
+        <label for="review">Author</label>
+		<input type="text" name="author"/>
+		<label for="review">Review</label>
+        <input type="text" name="contentBody"/>
+		<label for="review">Add Rating (1-5)</label>
+        <input type="number" name="rating"/>
 		<button type="submit">Add Review</button>
 	</form>
 
 	<div id="post-reviews"></div>
 
-    <input type="submit" class="btn btn-info" value="Add Review" onclick="location.href='@Url.Action("Create", "Review", new{ id = Model.ProductId})'"/>
+
     <input type="submit" class="btn btn-success" value="View All Reviews" onclick="location.href='@Url.Action("Index", "Review")'"/>
-</body>>
+</body>
+</html>

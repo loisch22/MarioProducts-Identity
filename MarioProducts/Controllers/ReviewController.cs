@@ -37,10 +37,11 @@ namespace MarioProducts.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Review review)
+        public IActionResult Create(string author, string contentBody, int rating, int id)
         {
-            _db.Reviews.Add(review);
-            return RedirectToAction("Index");
+            var newReview = new Review(author, contentBody, rating, id);
+            _db.Reviews.Add(newReview);
+            return RedirectToAction("Details", "Product", new{id = newReview.ProductId});
         }
 
         public IActionResult Edit(int id)
