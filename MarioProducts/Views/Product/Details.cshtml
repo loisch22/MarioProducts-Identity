@@ -25,26 +25,6 @@
 		    });
 		});
     </script>
-<!--	<script>
-		$(document).ready(function () {
-			$(".get-reviews").click(function () {
-                $.ajax ({
-                    url: '@Url.Action("Index", "Review", new { id = Model.ProductId})',
-                    type: 'GET',
-                    dataType: 'json',
-                    data: $(this).serialize(),
-                    success: function (result) {
-                       var stringResult = '<ul>';
-                            for (var i = 0, i < result.length; i++) {
-                                stringResult += '<li>' + result[i].author + ',' + result[i].contentBody + ',' + result[i].rating + '</li>';
-                            }
-                        stringResult += "</ul>";
-                        $("#show-all-reviews").html(stringResult);
-                    }
-    			});
-			});
-		});
-	</script>-->
 </head>
 
 <body>
@@ -80,31 +60,13 @@
             <br>
 			@review.ContentBody
 			<br>
-			@review.Rating
+			@review.Rating |
+                @if(User.Identity.IsAuthenticated)
+    			{
+                    <p>@Html.ActionLink("Delete", "Review", new {id = review.ReviewId})</p>
+    			}
 		    </li>
-		}
-
-		
-
-
-<!--    <input type="submit" class="btn btn-success" value="View All Reviews" onclick="location.href='@Url.Action("Index", "Review")'"/>-->
+		}    
 </body>
 </html>
 
-
-
-<!--       event.preventDefault();
-                $.ajax ({
-                    url: '@Url.Action("Index", "Review", new { id = Model.ProductId})',
-                    type: 'GET',
-                    dataType: 'json',
-                    data: $(this).serialize(),
-                    success: function (result) {
-                       var stringResult = '<ul>';
-                            for (var i = 0, i < result.length; i++) {
-                                stringResult += '<li>' + result[i].author + ',' + result[i].contentBody + ',' + result[i].rating + '</li>';
-                            }
-                        stringResult += "</ul>";
-                        $("#show-all-reviews").html(stringResult);
-                    }
-                });-->

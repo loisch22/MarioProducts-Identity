@@ -82,7 +82,7 @@ namespace MarioProducts.Controllers
 		{
 			var thisReview = _db.Reviews.FirstOrDefault(review => review.ReviewId == id);
 			_db.Remove(thisReview);
-			return RedirectToAction("Index");
+            return RedirectToAction("Index");
 		}
     }
 }
