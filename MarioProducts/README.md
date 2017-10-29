@@ -22,7 +22,7 @@ _This site shows all of Mario's Specialty Food Products._
 |9| Anonymous users should not be able to post new items. | `Add new product` not visible | Error page |
 |10| Admin users can delete comments by any user. | `Delete` | Deletes review |
 |11| From the product details page, make adding a new review into an AJAX action. | Add review | Review posts on same view |
-|12| User may 3 most recently added items and 3 items with the most reviews on the Home page  | Click `Home` in navigation bar  | View displays 6 products|
+|12| User may view 3 most recently added items and 3 items with the most reviews on the Home page  | Click `Home` in navigation bar  | View displays 6 products|
 
 ## Technical Specs
 |1| Products and Reviews should be properly saved to the database. |
@@ -33,9 +33,6 @@ _This site shows all of Mario's Specialty Food Products._
 
 
 ## WishList
-Add reviews on product detail page
-Display all reviews for product on detail page
-After creating a review, redirect to specific product page with reviews
 Delete confirmation popup instead of seperate view
 
 ## Known Bugs
