@@ -17,7 +17,7 @@ namespace MarioProducts.Models
         [Required]
         public string Author { get; set; }
         [Required]
-        [StringLength(250, MinimumLength = 50, ErrorMessage = "Invalid")]
+        [StringLength(250, MinimumLength = 50, ErrorMessage = "Reviews must be 50-250 characters")]
         public string ContentBody { get; set; }
         [Required]
         [Range(1,5)]

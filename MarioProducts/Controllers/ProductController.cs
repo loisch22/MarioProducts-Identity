@@ -49,7 +49,8 @@ namespace MarioProducts.Controllers
 
         public IActionResult Details(int id)
         {
-            var thisProduct = _db.Products.FirstOrDefault(x => x.ProductId == id);
+            var thisProduct = _db.Products.Include(x => x.Reviews)
+                                 .FirstOrDefault(x => x.ProductId == id);
             //ViewBag.reviews = new SelectList(productRepo.Reviews, "ReviewId", "Author", "ContentBody", "Rating", "ProductId");
             return View(thisProduct);
         }
