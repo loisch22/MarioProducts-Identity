@@ -14,11 +14,18 @@ namespace MarioProducts.Models
     {
         [Key]
         public int ReviewId { get; set; }
+        [Required]
         public string Author { get; set; }
+        [Required]
+        [StringLength(250, MinimumLength = 50, ErrorMessage = "Invalid")]
         public string ContentBody { get; set; }
+        [Required]
+        [Range(1,5)]
         public int Rating { get; set; }
+        [Required]
         public int ProductId { get; set; }
         public virtual Product Products { get; set; }
+
         public virtual ApplicationUser Admin { get; set; }
 
 		public override bool Equals(System.Object otherReview)

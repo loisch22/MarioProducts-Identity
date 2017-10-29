@@ -19,7 +19,7 @@
 		            data: $(this).serialize(),
 		            success: function (result) {
 			            var newReview = '<p>' + '<strong><h5>Your Newly Added Review</h5></strong>' + '<strong>Author: </strong>' + result.author + '<br>' + '<strong>Review: </strong>' + result.contentBody + '<br>' + '<strong>Rating: </strong>' + result.rating + '</p>';
-		                $("#post-reviews").html(newReview);
+		                $("#show-recent").html(newReview);
 		            }
 		        })
 		    });
@@ -27,22 +27,21 @@
     </script>
 	<script>
 		$(document).ready(function () {
-            $(".all-reviews").submit(function (event) {
-                event.preventDefault();
-			    $.ajax ({
+			$(".get-reviews").click(function () {
+                $.ajax ({
                     url: '@Url.Action("Index", "Review", new { id = Model.ProductId})',
-			        type: 'GET',
-			        dataType: 'json',
-			        data: $(this).serialize(),
-			        success: function (result) {
-			           var stringResult = '<ul>';
-			                for (var i = 0, i < result.length; i++) {
+                    type: 'GET',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                       var stringResult = '<ul>';
+                            for (var i = 0, i < result.length; i++) {
                                 stringResult += '<li>' + result[i].author + ',' + result[i].contentBody + ',' + result[i].rating + '</li>';
-			                }
-			            stringResult += "</ul>";
-			            $("#show-all-reviews").html(stringResult);
-			        }
-			    });
+                            }
+                        stringResult += "</ul>";
+                        $("#show-all-reviews").append(stringResult);
+                    }
+    			});
 			});
 		});
 	</script>
@@ -70,13 +69,9 @@
 		<button type="submit">Add Review</button>
 	</form>
 
-	<div id="post-reviews"></div>
+	<div id="show-recent"></div>
 
-    <h3>View All Reviews</h3>
-        <form action='("Index", "Review", new{ id = Model.ProductId})' class="all-reviews">
-            <button type="submit">Click to see reviews</button>
-        </form>
-		
+    <h3>View All Reviews</h3>		
 	<div id="show-all-reviews"></div>
 
 		
@@ -85,3 +80,21 @@
 <!--    <input type="submit" class="btn btn-success" value="View All Reviews" onclick="location.href='@Url.Action("Index", "Review")'"/>-->
 </body>
 </html>
+
+
+
+<!--       event.preventDefault();
+                $.ajax ({
+                    url: '@Url.Action("Index", "Review", new { id = Model.ProductId})',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                       var stringResult = '<ul>';
+                            for (var i = 0, i < result.length; i++) {
+                                stringResult += '<li>' + result[i].author + ',' + result[i].contentBody + ',' + result[i].rating + '</li>';
+                            }
+                        stringResult += "</ul>";
+                        $("#show-all-reviews").html(stringResult);
+                    }
+                });-->

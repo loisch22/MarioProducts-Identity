@@ -20,10 +20,15 @@ namespace MarioProducts.Models
 
         [Key]
         public int ProductId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public int Cost { get; set; }
+        [Required]
         public string CountryOfOrigin { get; set; }
+
         public DateTime CreateDate {get; set;}
+
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ApplicationUser Admin { get; set; }
 
