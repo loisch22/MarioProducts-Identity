@@ -5,15 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Products</h1>
+<div id="product-index">
+    <h1 class="product-title">Products</h1>
 
-@foreach (var product in Model)
-{
-    <li>@Html.DisplayFor(model => product.Name) | @Html.ActionLink("Details", "Details", new {id = product.ProductId})
-    </li>
-}
+    @foreach (var product in Model)
+    {
+        <li>@Html.DisplayFor(model => product.Name) | @Html.ActionLink("Details", "Details", new {id = product.ProductId})
+        </li>
+    }
 
-@if (User.Identity.IsAuthenticated)
-{
-@Html.ActionLink("Create", "Create")
-}
+    @if (User.Identity.IsAuthenticated)
+    {
+    @Html.ActionLink("Create", "Create")
+    }
+</div>

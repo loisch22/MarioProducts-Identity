@@ -3,16 +3,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Authentication with Identity</h2>
-<hr/>
+
 @if (User.Identity.IsAuthenticated)
 {
-    <p>Hello @User.Identity.Name!</p>
-
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-info" value="Log out"/>
-    }
+    <div class="account-index">
+        <h1 class="account-title">Hello @User.Identity.Name!</h1>
+    </div>
 }
 else
 {

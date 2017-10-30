@@ -3,8 +3,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <div id="home-header">
-    <h1>Mario's Specialty Food Products</h1>
-    <input type="button" class="btn btn-info view-all-btn" value="View All Products" onclick="location.href='@Url.Action("Index", "Product")'"/>
+    <h1 class="home-title">Mario's Specialty Food Products</h1>
+	<div class="home-products">
+        <input type="button" class="btn home-products-btn" value="View All Products" onclick="location.href='@Url.Action("Index", "Product")'"/>
+	</div>
 </div>
+
+
 

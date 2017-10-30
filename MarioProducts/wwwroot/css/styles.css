@@ -1,0 +1,65 @@
+﻿#nav {
+    background-color: #101029;
+}
+#nav a {
+    color: #ffffff;
+    margin: 5px;
+    letter-spacing: 2px;
+}
+.logout-btn {
+    border: none;
+    background: none;
+    color: #ffffff;
+    margin-left: 25px;  
+    margin-top: 3px; 
+    letter-spacing: 2px 
+}
+#nav a:hover, .logout-btn:hover {
+    cursor: pointer;
+    color: #a2d9e1;
+    text-decoration: none;
+}
+#home-header {
+    background-image: url("https://www.cookforyourlife.org/wp-content/uploads/2015/08/iStock_000058144322_Full-min-1200x908.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+}
+.home-title, .product-title {
+    color: #ffffff;
+    background: #a2d9e1;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
+    font-size: 3em;
+    text-align: center;
+    padding: 2% 15% 2% 15%;
+    opacity: .95;
+}
+.home-products {
+    text-align: center;
+    margin-top: 20%;
+    maring-bottom: 5%;
+}
+.home-products-btn {
+    font-size: 2em;
+    letter-spacing: 2px;
+    font-family: 'Comfortaa', cursive;
+    padding: 25px 50px 25px 50px;
+    opacity: .85;
+    background-color: #b48f69;
+    color: #ffffff;
+}
+.home-products-btn:hover {
+    opacity: 1;
+    cursor: pointer;
+    background-color: #b48f69;
+}
+
+#product-index {
+    text-align: center;
+}
+.product-title {
+    background: #a0d4a6;
+}
