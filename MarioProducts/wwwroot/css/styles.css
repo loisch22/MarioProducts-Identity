@@ -27,7 +27,8 @@
     background-position: center;
     background-attachment: fixed;
 }
-.home-title, .product-title {
+.home-title, .product-title, .register-title, .login-title, 
+.account-title {
     color: #ffffff;
     background: #a2d9e1;
     font-family: 'Roboto Condensed', sans-serif;
@@ -62,4 +63,50 @@
 }
 .product-title {
     background: #a0d4a6;
+}
+.register-title, .login-title {
+    background: #9c7bb4;
+}
+
+.account-title {
+    background: #b48f69;
+}
+.account-index {
+    background-image: url("http://www.nutritionw.com/wp-content/uploads/2014/04/bigstock-Large-super-food-selection-in-49013870.jpg");
+     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+}
+.card-deck {
+    margin-top: 20%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+.card {
+    padding: 25px;
+    opacity: .9;
+    border: none;
+    border-radius: 1px;
+}
+.card h3 {
+    letter-spacing: 2px;
+    font-family: 'Lato', sans-serif;
+}
+.card p {
+    padding: 10px;
+    font-size: 17px;
+}
+.btn-card {
+    font-size: 20px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 20px 10px 20px;
+}
+.btn-card:hover {
+    opacity: 1px;
+    background-color: #a2d9e1;
+    cursor: pointer;
 }
