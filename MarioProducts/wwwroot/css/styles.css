@@ -64,6 +64,12 @@
 .product-title {
     background: #a0d4a6;
 }
+.product-name {
+    list-style-type: none;
+}
+.card-img-top{
+   background-size: contain;     
+}
 .register-title, .login-title {
     background: #9c7bb4;
 }
