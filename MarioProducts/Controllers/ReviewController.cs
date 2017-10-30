@@ -70,19 +70,20 @@ namespace MarioProducts.Controllers
                                         
         }
 
-		public IActionResult Delete(int id)
+		public IActionResult Delete(int reviewId, int productId)
 		{
             var thisReview = _db.Reviews.Include(x => x.Products)
-									   .FirstOrDefault(x => x.ReviewId == id);
+									   .FirstOrDefault(x => x.ReviewId == reviewId);
 			return View(thisReview);
 		}
 
 		[HttpPost, ActionName("Delete")]
-		public IActionResult DeleteConfirmed(int id)
+		public IActionResult DeleteConfirmed(int reviewId, int productId)
 		{
-			var thisReview = _db.Reviews.FirstOrDefault(review => review.ReviewId == id);
+			var thisReview = _db.Reviews.FirstOrDefault(review => review.ReviewId == reviewId);
 			_db.Remove(thisReview);
-            return RedirectToAction("Index");
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Product", new { id = productId});
 		}
     }
 }
