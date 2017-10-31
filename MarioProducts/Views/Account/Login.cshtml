@@ -6,15 +6,21 @@
 @using MarioProducts.ViewModels
 @model LoginViewModel
 
-<h1 class="login-title">Log in with your account</h1>
-<hr/>
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+<div id="login-index">
+    <h1 class="login-title">Log in with your account</h1>
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-
-    <input type="submit" value="Log in" class="btn btn-success"/>
-}
+    <div class="container form">
+        @using (Html.BeginForm())
+        {
+        <div class="card">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+            <div class="margin"></div>
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+            <div class="margin"></div>
+            <input type="submit" value="Log in" class="btn submit-btn"/>
+    	</div>
+        }
+    </div>
+</div>

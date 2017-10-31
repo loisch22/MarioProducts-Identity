@@ -23,7 +23,7 @@
     color: #a2d9e1;
     text-decoration: none;
 }
-#home-header {
+#home-header, #delete-view {
     background-image: url("https://www.cookforyourlife.org/wp-content/uploads/2015/08/iStock_000058144322_Full-min-1200x908.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -31,9 +31,10 @@
     background-position: center;
     background-attachment: fixed;
     margin: 0;
+    text-align: center;
 }
 .home-title, .product-title, .register-title, .login-title, 
-.account-title {
+.account-title, .create-title {
     color: #ffffff;
     background: #a2d9e1;
     font-family: 'Roboto Condensed', sans-serif;
@@ -44,13 +45,15 @@
     opacity: .95;
     margin: 0;
 }
-
+.home-title:nth-of-type(2), .home-title:nth-of-type(3) {
+    margin-top: 18%;
+}
 .home-products {
     text-align: center;
     margin-top: 20%;
     margin-bottom: 5%;
 }
-.home-products-btn {
+.home-products-btn, .delete-confirm {
     font-size: 2em;
     letter-spacing: 2px;
     font-family: 'Comfortaa', cursive;
@@ -59,21 +62,14 @@
     background-color: #b48f69;
     color: #ffffff;
 }
-.home-products-btn:hover {
+.center {
+    text-align: center;
+    margin-top: 20%;
+}
+.home-products-btn:hover, .delete-confirm:hover {
     opacity: 1;
     cursor: pointer;
     background-color: #b48f69;
-}
-#home-recent-products {
-    background-color: #9c7bb4;
-    margin: 5% 0 10% 0;
-    background-image: url("https://www.cookforyourlife.org/wp-content/uploads/2015/08/iStock_000058144322_Full-min-1200x908.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    max-height: 100vh;
-    background-position: center;
-    background-attachment: fixed;
-    text-align: center;
 }
 
 #product-index {
@@ -85,7 +81,7 @@
     background-position: center;
     background-attachment: fixed;
 }
-.product-title {
+.product-title, .create-title {
     background: #a0d4a6;
 }
 .product-name {
@@ -131,7 +127,7 @@
 .account-title {
     background: #b48f69;
 }
-.account-index {
+.account-index, #register-view {
     background-image: url("http://www.nutritionw.com/wp-content/uploads/2014/04/bigstock-Large-super-food-selection-in-49013870.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -147,7 +143,6 @@
 .card {
     padding: 25px;
     opacity: .9;
-    /*border: none;*/;
     border-radius: 1px;
 }
 .card h3 {
@@ -169,4 +164,31 @@
     opacity: 1px;
     background-color: #a2d9e1;
     cursor: pointer;
+}
+
+#login-index, #add-product-index {
+    background-image: url("http://www.yhealthylife.com/wp-content/uploads/2016/02/healthy_food.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+}
+.form {
+    text-align: center;
+    margin-top: 15%;
+}
+.submit-btn {
+    letter-spacing: 2px;
+    font-size: 17px;
+    background-color: #a2d9e1;
+}
+.submit-btn:hover {
+    background-color: #76b8cc;
+    cursor: pointer;
+    opacity: 2;
+}
+.margin {
+    margin-top: 20px;
 }

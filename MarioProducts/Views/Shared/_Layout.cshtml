@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Gummi Bear Kingdom</title>
+    <title>@ViewData["Title"] - Mario's Specialty Foods</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/styles.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lato|Roboto+Condensed" rel="stylesheet">
@@ -17,8 +17,8 @@
 
 		   @if (User.Identity.IsAuthenticated)
     		{
-			   <a class="nav-item nav-link">@Html.ActionLink("Account", "Index", "Account")</a>
     		   <a class="nav-item nav-link">@Html.ActionLink("Add New Product", "Create", "Product")</a>
+               <a class="nav-item nav-link">@Html.ActionLink("Profile", "Index", "Account")</a>
 				@using (Html.BeginForm("Logoff", "Account"))
 				{
                     <input type="submit" class="logout-btn" value="Log out"/> 

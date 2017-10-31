@@ -5,9 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Are you sure you want to delete @Html.DisplayFor(model => model.Name)?</h1>
+<div id="delete-view">
+    <h1 class="home-title">Are you sure you want to delete @Html.DisplayFor(model => model.Name)?</h1>
 
-@using (Html.BeginForm())
-{
-    <input type="submit" class="btn btn-danger" value="Confirm" onclick="location.href='@Url.Action("Delete", new{ id = Model.ProductId})'"/>
-}
+    @using (Html.BeginForm())
+    {
+        <div class="center">
+             <input type="submit" class="btn delete-confirm" value="Confirm" onclick="location.href='@Url.Action("Delete", new{ id = Model.ProductId})'"/>
+        </div>
+    }
+</div>

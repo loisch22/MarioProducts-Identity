@@ -70,7 +70,7 @@ namespace MarioProducts.Controllers
         public async Task<IActionResult> Logoff()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

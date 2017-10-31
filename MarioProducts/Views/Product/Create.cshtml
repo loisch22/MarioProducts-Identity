@@ -5,21 +5,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Add new product</h1>
+<div id="add-product-index">
+    <h1 class="create-title">Add new product</h1>
 
+    <div class="container form">
+        @using (Html.BeginForm())
+        {
+            <div class="card">
+                @Html.LabelFor(model => model.Name)
+                @Html.EditorFor(model => model.Name)
+                <div class="margin"></div>
+                @Html.LabelFor(model => model.Cost)
+                @Html.EditorFor(model => model.Cost)
+                <div class="margin"></div>
+                @Html.LabelFor(model => model.CountryOfOrigin)
+                @Html.EditorFor(model => model.CountryOfOrigin)
+                <div class="margin"></div>
+                @Html.HiddenFor(model => model.CreateDate)
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
-
-    @Html.LabelFor(model => model.Cost)
-    @Html.EditorFor(model => model.Cost)
-
-    @Html.LabelFor(model => model.CountryOfOrigin)
-    @Html.EditorFor(model => model.CountryOfOrigin)
-
-    @Html.HiddenFor(model => model.CreateDate)
-
-    <input type="submit" value="Save"/>
-}
+                <input type="submit" value="Save" class="btn submit-btn"/>
+            </div>
+		}
+    </div>
+</div>

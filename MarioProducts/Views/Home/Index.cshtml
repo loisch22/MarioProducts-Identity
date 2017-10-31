@@ -33,6 +33,7 @@
       <div class="card product-cards" style="width: 20rem; text-align:center;display:inline-block;">
         <div class="card-block">
           <h4 class="card-title ">@product.Name</h4>
+		    <h5>Average Rating: @product.AverageRating()</h5>
           <input type="button" id="create-btn" class="btn product-btn" value="Product Details" onclick="location.href='@Url.Action("Details", "Product", new {id = product.ProductId})'"/>
           <p class="card-text"><small class="text-muted">Date Posted: @product.CreateDate</small></p>
         </div>
