@@ -42,8 +42,13 @@ namespace MarioProducts.Controllers
         public IActionResult Create(string author, string contentBody, int rating, int id)
         {
             var newReview = new Review(author, contentBody, rating, id);
-            _db.Reviews.Add(newReview);
-            _db.SaveChanges();
+
+            if (ModelState.IsValid)
+            {
+				_db.Reviews.Add(newReview);
+				_db.SaveChanges(); 
+            }
+
             return Json(newReview);
         }
 
@@ -74,7 +79,7 @@ namespace MarioProducts.Controllers
 		{
             var thisReview = _db.Reviews.Include(x => x.Products)
 									   .FirstOrDefault(x => x.ReviewId == reviewId);
-			return View(thisReview);
+            return RedirectToAction("Details", "Product", new {id = productId});
 		}
 
 		[HttpPost, ActionName("Delete")]

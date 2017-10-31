@@ -9,19 +9,19 @@
     <div class="account-index">
         <h1 class="account-title">Hello @User.Identity.Name!</h1>
         <div class="container">
-    	    <div class="card-deck">
-    		    <div class="card">
+            <div class="card-deck">
+                <div class="card">
                     <h3>View All Current Products</h3>
-    			    <p>Add a review, update, or delete a product.</p>
-    			    <input type="button" class="btn btn-card" value="View All Products" onclick="location.href='@Url.Action("Index", "Product")'"/>
-    		    </div>
-        		 <div class="card">
+                    <p>Add a review, update, or delete a product.</p>
+                    <input type="button" class="btn btn-card" value="View All Products" onclick="location.href='@Url.Action("Index", "Product")'"/>
+                </div>
+                 <div class="card">
                     <h3>Add New Product</h3>
                     <p>Add a new product to our inventory.</p>
                     <input type="button" class="btn btn-card" value="Add New Product" onclick="location.href='@Url.Action("Create", "Product")'"/>
                 </div>
-    	    </div>
-		</div>
+            </div>
+        </div>
     </div>
 }
 else

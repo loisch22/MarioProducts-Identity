@@ -45,9 +45,9 @@
         <label for="review">Author</label>
 		<input type="text" name="author"/>
 		<label for="review">Review</label>
-        <input type="text" name="contentBody"/>
+        <input type="text" minlength="50" maxlength="250" name="contentBody"/>
 		<label for="review">Add Rating (1-5)</label>
-        <input type="number" name="rating"/>
+        <input type="number" min="1" max="5" name="rating"/>
 		<button type="submit">Add Review</button>
 	</form>
 

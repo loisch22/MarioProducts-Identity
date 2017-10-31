@@ -39,7 +39,7 @@ namespace MarioProducts.Controllers
             IdentityResult result = await _userManager.CreateAsync(newAdmin, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
             else
             {
