@@ -119,6 +119,9 @@
 .add-product-btn:hover {
     border: solid 4px #a2d9e1;
 }
+.admin-detail-btns {
+    text-align: center;   
+}
 
 .register-title, .login-title {
     background: #9c7bb4;
