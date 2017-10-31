@@ -37,10 +37,13 @@
         </div>    
 	}
 
-    <p>@Html.DisplayNameFor(model => model.Cost): $@Html.DisplayFor(model => model.Cost)</p>
-    <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
-    <p>Average Rating: @Model.AverageRating()</p>
-
+   <div class="container">
+        <div class="card">
+            <p>@Html.DisplayNameFor(model => model.Cost): $@Html.DisplayFor(model => model.Cost)</p>
+            <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
+            <p>Average Rating: @Model.AverageRating()</p>
+        </div>
+	
 		
 	<h4>Write a review for the product: @Html.DisplayFor(model => model.Name)</h4>
 	<form action='(Create", "Review", new{ id = Model.ProductId})' class="add-review">
@@ -68,7 +71,8 @@
                     <p>@Html.ActionLink("Delete", "Delete", "Review", new {reviewId = review.ReviewId, productId = review.ProductId})</p>
     			}
 		    </li>
-		}    
+		}  
+   </div>
 </body>
 </html>
 

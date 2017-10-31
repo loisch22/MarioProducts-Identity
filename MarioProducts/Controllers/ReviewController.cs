@@ -79,7 +79,7 @@ namespace MarioProducts.Controllers
 		{
             var thisReview = _db.Reviews.Include(x => x.Products)
 									   .FirstOrDefault(x => x.ReviewId == reviewId);
-            return RedirectToAction("Details", "Product", new {id = productId});
+            return View();
 		}
 
 		[HttpPost, ActionName("Delete")]
