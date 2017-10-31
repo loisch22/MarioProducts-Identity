@@ -20,6 +20,7 @@
 		            success: function (result) {
 			            var newReview = '<p>' + '<strong><h5>Your Newly Added Review</h5></strong>' + '<strong>Author: </strong>' + result.author + '<br>' + '<strong>Review: </strong>' + result.contentBody + '<br>' + '<strong>Rating: </strong>' + result.rating + '</p>';
 		                $("#show-recent").html(newReview);
+			            $("#close-btn").show();
 		            }
 		        })
 		    });
@@ -44,33 +45,39 @@
             <p>Average Rating: @Model.AverageRating()</p>
         </div>
 	
-		
-	<h4>Write a review for the product: @Html.DisplayFor(model => model.Name)</h4>
-	<form action='(Create", "Review", new{ id = Model.ProductId})' class="add-review">
-        <label for="review">Author</label>
-		<input type="text" name="author"/>
-		<label for="review">Review</label>
-        <input type="text" minlength="50" maxlength="250" name="contentBody"/>
-		<label for="review">Add Rating (1-5)</label>
-        <input type="number" min="1" max="5" name="rating"/>
-		<button type="submit">Add Review</button>
-	</form>
+        <div class="card">
+        	<h4>Write a review for the product: @Html.DisplayFor(model => model.Name)</h4>
+        	<form action='(Create", "Review", new{ id = Model.ProductId})' class="add-review">
+                <label for="review">Author</label>
+        		<input type="text" name="author"/>
+        		<label for="review">Review</label>
+                <input type="text" minlength="50" maxlength="250" name="contentBody"/>
+        		<label for="review">Add Rating (1-5)</label>
+                <input type="number" min="1" max="5" name="rating"/>
+        		<button type="submit" class="btn btn-info">Add Review</button>
+        	</form>
 
-	<div id="show-recent"></div>
+        	<div id="show-recent"></div>
+			<div id="close-btn"><input type="button" class="btn btn-danger" value="Close" onclick="location.href='@Url.Action("Details", "Product", new { id = Model.ProductId})'"/></div>
 
+         </div>
+			
     <h3 class="get-reviews">View All Reviews</h3>		
 	@foreach(var review in Model.Reviews)
 		{
-            <li>@review.Author
-            <br>
-			@review.ContentBody
-			<br>
-			@review.Rating |
+			<div class="card">
+                <div class="card-header">@review.Author</div>
+			    <div class="card-block">@review.ContentBody
+                <br>
+					@review.Rating
+				</div>
+            
                 @if(User.Identity.IsAuthenticated)
     			{
                     <p>@Html.ActionLink("Delete", "Delete", "Review", new {reviewId = review.ReviewId, productId = review.ProductId})</p>
     			}
-		    </li>
+		
+				</div>
 		}  
    </div>
 </body>
