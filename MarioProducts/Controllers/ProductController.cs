@@ -79,6 +79,7 @@ namespace MarioProducts.Controllers
         {
 			var thisProduct = _db.Products.FirstOrDefault(x => x.ProductId == id);
             _db.Remove(thisProduct);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
     }
