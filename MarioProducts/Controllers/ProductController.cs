@@ -65,7 +65,8 @@ namespace MarioProducts.Controllers
         public IActionResult Edit(Product product)
         {
             _db.Entry(product).State = EntityState.Modified;
-            return RedirectToAction("Index");
+            _db.SaveChanges();
+            return RedirectToAction("Details", new {id = product.ProductId});
         }
 
         public IActionResult Delete(int id)
