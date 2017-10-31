@@ -77,9 +77,9 @@ namespace MarioProducts.Controllers
 
 		public IActionResult Delete(int reviewId, int productId)
 		{
-            var thisReview = _db.Reviews.Include(x => x.Products)
-									   .FirstOrDefault(x => x.ReviewId == reviewId);
-            return View();
+			var thisReview = _db.Reviews.Include(x => x.Products)
+									  .FirstOrDefault(x => x.ReviewId == reviewId);
+            return View(thisReview);
 		}
 
 		[HttpPost, ActionName("Delete")]
