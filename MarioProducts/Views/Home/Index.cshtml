@@ -1,6 +1,10 @@
-﻿@{
+﻿@using MarioProducts.Models
+
+@{
     ViewData["Title"]="Mario's Specialty";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Product> mostRecent = (List<Product>)ViewData["mostRecent"];
+    List<Product> bestRated = (List<Product>)ViewData["bestRated"];
 }
 
 
@@ -10,6 +14,20 @@
 	<div class="home-products">
         <input type="button" class="btn home-products-btn" value="View All Products" onclick="location.href='@Url.Action("Index", "Product")'"/>
 	</div>
+</div>
+
+<div id="home-recent-products">
+	<h1 class="home-title">Recently Added Products</h1>
+    @foreach (var product in mostRecent)
+    {
+      <div class="card product-cards" style="width: 20rem; text-align:center;display:inline-block;">
+        <div class="card-block">
+          <h4 class="card-title ">@product.Name</h4>
+          <input type="button" id="create-btn" class="btn product-btn" value="Product Details" onclick="location.href='@Url.Action("Details", new {id = product.ProductId})'"/>
+          <p class="card-text"><small class="text-muted">Date Posted: @product.CreateDate</small></p>
+        </div>
+      </div>
+    }
 </div>
 
 

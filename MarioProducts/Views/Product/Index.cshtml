@@ -8,24 +8,23 @@
 <div id="product-index">
     <h1 class="product-title">Products</h1>
 
+	<div class="container">
      @if (User.Identity.IsAuthenticated)
     {
-        <input type="button" id="create-btn" class="btn" value="Add New Product" onclick="location.href='@Url.Action("Create", "Product")'"/>
+        <input type="button" id="create-btn" class="btn add-product-btn" value="Add New Product" onclick="location.href='@Url.Action("Create", "Product")'"/>
 	}
 	<br>
 
     @foreach (var product in Model)
-    {
-    	<div class="card-deck">
-          <div class="card">
-            <img class="card-img-top" src="http://www.thefitindian.com/wp-content/uploads/2013/03/natural-and-heatlhy-food.jpg" alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">@Html.DisplayFor(model => product.Name) </h4>
-              <p class="card-text">@Html.ActionLink("Details", "Details", new {id = product.ProductId})</p>
-              <p class="card-text"><small class="text-muted">Date Posted: @product.CreateDate</small></p>
-            </div>
-          </div>
+    {   
+      <div class="card product-cards" style="width: 20rem; text-align:center;display:inline-block;">
+        <div class="card-block">
+          <h4 class="card-title ">@Html.DisplayFor(model => product.Name) </h4>
+		  <input type="button" id="create-btn" class="btn product-btn" value="Product Details" onclick="location.href='@Url.Action("Details", new {id = product.ProductId})'"/>
+          <p class="card-text"><small class="text-muted">Date Posted: @product.CreateDate</small></p>
         </div>
+      </div>	
     }
+	</div>
    
 </div>

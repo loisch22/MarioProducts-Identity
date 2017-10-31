@@ -1,4 +1,9 @@
-﻿#nav {
+﻿*body {
+    background: #b48f69;
+    margin: 0;
+    padding: 0;
+}
+#nav {
     background-color: #101029;
 }
 #nav a {
@@ -37,11 +42,12 @@
     text-align: center;
     padding: 2% 15% 2% 15%;
     opacity: .95;
+    margin: 0;
 }
 .home-products {
     text-align: center;
     margin-top: 20%;
-    maring-bottom: 5%;
+    margin-bottom: 5%;
 }
 .home-products-btn {
     font-size: 2em;
@@ -57,9 +63,25 @@
     cursor: pointer;
     background-color: #b48f69;
 }
+#home-recent-products {
+    background-color: #9c7bb4;
+    margin: 5% 0 10% 0;
+    background-image: url("https://www.cookforyourlife.org/wp-content/uploads/2015/08/iStock_000058144322_Full-min-1200x908.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+}
 
 #product-index {
     text-align: center;
+    background-image: url("https://i2.wp.com/www.onegreenplanet.org/wp-content/uploads/2015/03/healthyfoods1.jpg?fit=1200%2C800");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
 }
 .product-title {
     background: #a0d4a6;
@@ -67,9 +89,39 @@
 .product-name {
     list-style-type: none;
 }
-.card-img-top{
-   background-size: contain;     
+.product-cards {
+    margin: 35px 15px 30px 15px;    
 }
+.product-cards h4 {
+    letter-spacing: 2px;
+    font-size: 2em;
+}
+.product-btn {
+    letter-spacing: 2px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+    background-color: #b48f69;
+}
+.product-btn:hover, .add-product-btn:hover {
+    background-color: #a2d9e1;
+    cursor: pointer;
+    opacity: 2;
+}
+.add-product-btn {
+    letter-spacing: 2px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding: 10px 20px 10px 20px;
+    font-size: 20px;
+    background-color: #a2d9e1;
+    opacity: .9;
+}
+.add-product-btn:hover {
+    border: solid 4px #a2d9e1;
+}
+
 .register-title, .login-title {
     background: #9c7bb4;
 }
@@ -93,7 +145,7 @@
 .card {
     padding: 25px;
     opacity: .9;
-    border: none;
+    /*border: none;*/;
     border-radius: 1px;
 }
 .card h3 {
