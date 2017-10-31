@@ -12,6 +12,7 @@
     {
         <div class="center">
              <input type="submit" class="btn delete-confirm" value="Confirm" onclick="location.href='@Url.Action("Delete", new{ id = Model.ProductId})'"/>
-        </div>
+             <input type="submit" class="btn" value="Cancel" onclick="location.href='Url.Action("Details", new {id = Model.ProductId})'"/>
+	    </div>
     }
 </div>
